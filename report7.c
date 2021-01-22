@@ -4,8 +4,20 @@ void sortTheScore(int array[],int size);
 void printScore(int array[],int size);
 
 int sortTheScore(int array[],int size){
-    for(int j=0;i<size;i++){
-        
+    int newArray[size]={0};
+    for(int j=0;j<size;j++){
+        int l=0;
+        for(int k=0;k<size;k++){
+            if(j!=k){
+                if(array[j]<array[k]){
+                    l++;
+                }
+            }
+        }
+        newArray[l]=array[j]
+    }
+    for(int m=0;m<size;m++){
+        array[m]=newArray[m];
     }
 }
 void printScore(int array[],int size){
