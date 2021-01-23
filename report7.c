@@ -3,8 +3,11 @@
 void sortTheScore(int array[],int size);
 void printScore(int array[],int size);
 
-int sortTheScore(int array[],int size){
-    int newArray[size]={0};
+void sortTheScore(int array[],int size){
+    int newArray[size];
+    for(int i=0;i<size;i++){
+        newArray[i]=0;
+    }
     for(int j=0;j<size;j++){
         int l=0;
         for(int k=0;k<size;k++){
@@ -14,7 +17,17 @@ int sortTheScore(int array[],int size){
                 }
             }
         }
-        newArray[l]=array[j]
+        while(1){
+            if(array[j]==0){
+                break;
+            }
+            if(newArray[l]==array[j]){
+                l++;
+            }else{
+                newArray[l]=array[j];
+                break;
+            }
+        }
     }
     for(int m=0;m<size;m++){
         array[m]=newArray[m];
@@ -22,14 +35,18 @@ int sortTheScore(int array[],int size){
 }
 void printScore(int array[],int size){
     for(int i=0;i<size;i++){
-        printf("%d",array[i]);
+        printf("%d ",array[i]);
     }
+    printf("\n");
 }
 int main(){
-    const int SIZE = 5; //定数として配列のサイズを宣言                          
-    int scores[SIZE] = {0, 60, 70, 100, 90};
+    const int SIZE = 6; //定数としてのサイズを宣言                          
+    int scores[SIZE] = {100, 60, 70, 100, 90, 80};
     //処理コード
+    printf("scores = ");
+    printScore(scores,SIZE);
     sortTheScore(scores,SIZE);
+    printf("results = ");  
     printScore(scores,SIZE);
     return 0;
 }
